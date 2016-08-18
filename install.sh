@@ -21,19 +21,24 @@ has_class_file() {
 
 push_metadata_file() {
 	local path=$1"/metadata/"$2 
-	echo $path
-	local res=$( (force push -f $path) 2>&1 )
-	echo "Result "$res
+	local res=$( (force push -f $path) &>/dev/null )
+	if [[ $res != "ERROR"* ]]
+	then
+  		echo "$2 Deployed...";
+	fi
 	#/Users/dcarroll/Documents/Projects/ForceDotCom/VolcomYelpDemo/metadata/staticresources/leaflet.resource
 }
 
 push_aura_file() {
 	local path=$1"/metadata/aura/"$2 
-	echo $path
-	local res=$( (force aura push -f $path) 2>&1 )
-	echo "Result "$res
+	local res=$( (force aura push -f $path) &>/dev/null )
+	if [[ $res != "ERROR"* ]]
+	then
+  		echo "$2 Deployed...";
+	fi
 	#force aura push -f '/Users/dcarroll/Documents/Projects/ForceDotCom/VolcomYelpDemo/metadata/aura/dataRetrieved/dataRetrieved.evt'
 }
+
 force login
 #useTempDir
 #has_class_file "ApexClass" "YelpDemoControllersss"
