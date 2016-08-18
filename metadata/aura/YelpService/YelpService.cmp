@@ -1,21 +1,9 @@
-<aura:component controller="YelpServiceController" access="global">
-
-    <aura:set attribute="auraPreInitBlock">
-            <auraStorage:init name="actions" 
-                persistent="false" 
-                secure="false" 
-                clearStorageOnInit="true"
-                defaultExpiration="{!v.defaultExpiration}"
-                defaultAutoRefreshInterval="60"
-                maxSize="1024" 
-                version="1.0"/>
-    </aura:set>
+<aura:component extends="c:Storage" controller="YelpServiceController" access="global">
 
 	<aura:attribute name="errorMessage" type="String" />
     <aura:attribute name="latlon" type="String" description="Option for centering the search on comma separated lattitude and longitude" />
     <aura:attribute name="address" access="global" type="String" description="Option for centering the search on an address" />
     <aura:attribute name="searchTerm" type="String" default="restaurant" />
-    <aura:attribute name="defaultExpiration" type="String" default="50" />
 
     <aura:registerEvent name="yelpDataFound" type="c:dataRetrieved" />
 

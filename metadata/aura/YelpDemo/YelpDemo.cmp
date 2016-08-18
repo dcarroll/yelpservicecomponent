@@ -19,7 +19,7 @@
     <aura:handler name="change" value="{!v.searchTerm}" action="{!c.updateSearch}" />
     <aura:handler name="yelpDataFound" event="c:dataRetrieved" action="{!c.renderYelpData}" />
 
-    <c:YelpService aura:id="yelpservice" address="{!v.location}" searchTerm="{!v.searchTerm}" />
+    <c:YelpService defaultExpiration="30" aura:id="yelpservice" address="{!v.location}" searchTerm="{!v.searchTerm}" />
 
 
     <div class="slds-box small" aura:id="main">
