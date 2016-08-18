@@ -34,7 +34,7 @@ push_aura_file() {
 	echo "Result "$res
 	#force aura push -f '/Users/dcarroll/Documents/Projects/ForceDotCom/VolcomYelpDemo/metadata/aura/dataRetrieved/dataRetrieved.evt'
 }
-#force login -u ripcurl@demo.org -p test1234
+force login
 #useTempDir
 #has_class_file "ApexClass" "YelpDemoControllersss"
 cd $curDir
