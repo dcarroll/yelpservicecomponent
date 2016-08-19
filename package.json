@@ -1,10 +1,10 @@
 {
   "name": "yelpservicedemo",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Demonstration of how to create a service component in Salesforce Lightning",
   "main": "index.js",
   "scripts": {
-    "install": "chmod +x install.sh && ./install2.sh && exit 0",
+    "install": "chmod +x install.sh && ./install.sh && exit 0",
     "uninstall": "chmod +x uninstall.sh && ./uninstall.sh && exit 0"
   },
   "repository": {

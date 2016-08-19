@@ -29,7 +29,7 @@ push_aura_file() {
 	#force aura push -f '/Users/dcarroll/Documents/Projects/ForceDotCom/VolcomYelpDemo/metadata/aura/dataRetrieved/dataRetrieved.evt'
 }
 
-#force login
+force login
 
 #	IFS=$'\n'       # make newlines the only separator
 for j in `cat ./metadata_artifacts.txt`
@@ -44,8 +44,9 @@ done
 
 cd ..
 mv yelpservicedemo/ ../
+cd ..
 
-#[ "$(ls -A node_modules)" ] && echo $'\nnode_modules not empty, leaving in place...' || rm -r node_modules
+[ "$(ls -A node_modules)" ] && echo $'\nnode_modules not empty, leaving in place...' || rm -r node_modules
 
 echo "END"
 

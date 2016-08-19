@@ -15,7 +15,7 @@ delete_aura_file() {
 	#force aura push -f '/Users/dcarroll/Documents/Projects/ForceDotCom/VolcomYelpDemo/metadata/aura/dataRetrieved/dataRetrieved.evt'
 }
 
-#force login
+force login
 
 IFS=$'\n'       # make newlines the only separator
 for j in `cat ./lightning_removal_artifacts.txt`
