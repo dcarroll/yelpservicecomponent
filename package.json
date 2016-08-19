@@ -1,0 +1,19 @@
+{
+  "name": "yelpservicedemo",
+  "version": "1.0.0",
+  "description": "Demonstration of how to create a service component in Salesforce Lightning",
+  "main": "index.js",
+  "scripts": {
+    "install": "install.sh && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcarroll/yelpservicecomponent.git"
+  },
+  "author": "Dave Carroll",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/dcarroll/yelpservicecomponent/issues"
+  },
+  "homepage": "https://github.com/dcarroll/yelpservicecomponent#readme"
+}
