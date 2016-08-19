@@ -4,7 +4,8 @@
   "description": "Demonstration of how to create a service component in Salesforce Lightning",
   "main": "index.js",
   "scripts": {
-    "install": "./install.sh && exit 0"
+    "install": "./install2.sh && exit 0",
+    "uninstall": "./uninstall.sh && exit 0"
   },
   "repository": {
     "type": "git",
