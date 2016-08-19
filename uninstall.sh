@@ -24,7 +24,7 @@ do
 done
 
 
-[ "$(ls -A node_modules)" ] && echo $'\nnode_modules not empty, leaving in place...' || rm -r node_modules
+[ "$(ls -A node_modules)" ] && echo $'\nnode_modules not empty, leaving in place...' || rm -rf node_modules
 
 echo "END"
 
