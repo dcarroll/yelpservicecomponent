@@ -4,6 +4,11 @@ status() {
 	echo "-----> $*" 
 }
 
+import_package() {
+	cd $PWD"/metadata"
+	force import -v
+}
+
 push_metadata_file() {
 	local path=$PWD"/metadata/"$1 
 	local res=$( (force push -f $path) 2>&1 )
@@ -32,21 +37,23 @@ push_aura_file() {
 force login
 
 #	IFS=$'\n'       # make newlines the only separator
-for j in `cat ./metadata_artifacts.txt`
-do
-	push_metadata_file "$j"
-done
+#for j in `cat ./metadata_artifacts.txt`
+#do
+#	push_metadata_file "$j"
+#done
 
-for j in `cat ./lightning_artifacts.txt`
-do
-	push_aura_file "$j"
-done
+#for j in `cat ./lightning_artifacts.txt`
+#do
+#	push_aura_file "$j"
+#done
 
+import_package
 cd ..
-mv yelpservicedemo/ ../
-cd ..
 
-[ "$(ls -A node_modules)" ] && echo $'\nnode_modules not empty, leaving in place...' || rm -r node_modules
+#mv yelpservicedemo/ ../
+#cd ..
+
+#[ "$(ls -A node_modules)" ] && echo $'\nnode_modules not empty, leaving in place...' || rm -r node_modules
 
 echo "END"
 
