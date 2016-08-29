@@ -1,6 +1,6 @@
 <aura:component controller="YelpDemoController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" access="global">
 
-	<ltng:require styles="/resource/leaflet/leaflet.css" scripts="/resource/leaflet/leaflet.js" afterScriptsLoaded="{!c.mapLoaded}" />
+	<ltng:require styles="/resource/leaflet/leaflet.css" scripts="/resource/leaflet/leaflet.js" />
 
     <aura:attribute name="recordId" type="Id" default=""/>
     <aura:attribute name="sObjectName" type="String" default="Contact" />
