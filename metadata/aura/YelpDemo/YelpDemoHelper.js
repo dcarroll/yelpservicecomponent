@@ -38,7 +38,6 @@
     },
 
 	initializeLayout: function(component, event, helper) {
-		console.log("Initing the Test component");
         if (component.get("v.recordId")) {
         	this.unfixMain(component);
             this.getRecordLocation(component, component.get("v.recordId"));
@@ -69,7 +68,6 @@
     },
 
     handleBackButton: function(component) {
-        component.rerender();
         var panelList = component.find("panelList");
         var panelDetails = component.find("panelDetails");
         $A.util.removeClass(panelList, 'panel--stageLeft');
@@ -91,7 +89,50 @@
         $A.util.addClass(spinner, "slds-hide");
     },
 
-    updateMap: function(component, lat, lon) {
-        component.panTo([lat, lon]);
+    revealDetailsPane: function(component, event, helper) {
+        var selectedItem = event.currentTarget;
+        var recID = selectedItem.dataset.record;
+        var data = component.get('v.restaurantList');
+        var recordLoc = component.get("v.staticLocation");
+        if (!recordLoc) {
+            recordLoc = component.get("v.location");
+        }
+
+        var map = component.get("v.map");
+        if (!map) {
+            var mapElement = component.find("map").getElement();
+            map = L.map(mapElement, { zoomControl: true }).setView([recordLoc.latitude, recordLoc.longitude], 14);
+            L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', { attribution: 'Tiles © Esri', reuseTiles: true }).addTo(map);
+            component.set("v.map", map);
+            var orgLoc = L.marker([recordLoc.latitude, recordLoc.longitude]).addTo(map);
+            var markers = new L.FeatureGroup();
+            component.set("v.markers", markers);
+        }
+
+        var markers = component.get('v.markers');
+        if (markers) {
+            markers.clearLayers();
+        }
+        var bizLoc = L.marker([data[recID].location.latitude, data[recID].location.longitude]); 
+        bizLoc.bindPopup("<b>" + data[recID].name + "</b>");
+        markers.addLayer(bizLoc);
+        map.addLayer(markers);
+        
+
+        map.panTo([data[recID].location.latitude, data[recID].location.longitude]);
+
+        var panelList = component.find("panelList");
+        var panelDetails = component.find("panelDetails");
+        $A.util.removeClass(panelList, 'panel--visible');
+        $A.util.addClass(panelList, 'panel--stageLeft');
+        $A.util.removeClass(panelDetails, 'panel--stageRight');
+        $A.util.addClass(panelDetails, 'panel--visible');
+        component.set("v.itemName", data[recID].name);
+        component.set("v.address", data[recID].address);
+        component.set("v.city", data[recID].city);
+        component.set("v.state", data[recID].state);
+        component.set("v.phone", data[recID].phone);
+        component.set("v.image", data[recID].image);
+        component.set("v.review", data[recID].review);
     }
 })
