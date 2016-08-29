@@ -5,7 +5,7 @@ status() {
 }
 
 import_package() {
-	cd $PWD"/metadata"
+	#cd $PWD"/metadata"
 	force import -v
 }
 
@@ -48,7 +48,7 @@ force login
 #done
 
 import_package
-cd ..
+#cd ..
 
 #mv yelpservicedemo/ ../
 #cd ..
