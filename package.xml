@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YelpDemo</fullName>
+    <types>
+        <members>MockHttpResponseGenerator</members>
+        <members>TestInTheNeighborhoodController</members>
+        <members>YelpDemoController</members>
+        <members>YelpServiceController</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Storage</members>
+        <members>YelpDemo</members>
+        <members>YelpService</members>
+        <members>dataRetrieved</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>YelpApp</members>
+        <name>RemoteSiteSetting</name>
+    </types>
+    <types>
+        <members>leaflet</members>
+        <name>StaticResource</name>
+    </types>
+    <version>37.0</version>
+</Package>
